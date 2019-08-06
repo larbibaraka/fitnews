@@ -4,6 +4,7 @@
   "description": "a place where you fill find news that fit your need :) ",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,14 @@
   "bugs": {
     "url": "https://github.com/larbibaraka/fitnews/issues"
   },
-  "homepage": "https://github.com/larbibaraka/fitnews#readme"
+  "homepage": "https://github.com/larbibaraka/fitnews#readme",
+  "dependencies": {
+    "graphql-yoga": "^1.18.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "nodemon": "^1.19.1"
+  }
 }
