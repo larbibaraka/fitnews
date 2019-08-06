@@ -1,31 +1,26 @@
 {
   "name": "fitnews",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
-  },
+  "version": "1.0.0",
+  "description": "a place where you fill find news that fit your need :) ",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larbibaraka/fitnews.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "keywords": [
+    "fitnews",
+    "hackernews",
+    "graphql",
+    "react",
+    "prisma"
+  ],
+  "author": "larbi baraka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/larbibaraka/fitnews/issues"
+  },
+  "homepage": "https://github.com/larbibaraka/fitnews#readme"
 }
