@@ -15,6 +15,9 @@ const resolvers = {
     Query : {
         info : () => 'hello this is just an info about fitnews',
         feed : () => links,
+        link : (parent, args) => { for(let i=0; i<links.length ; i++){ if(links[i].id === args.id) {return links[i]} } },
+         
+        
     },
     Mutation : {
         post : (parent, args) => {
@@ -25,6 +28,25 @@ const resolvers = {
             }
             links.push(link)
             return link 
+        },
+        updateLink : (parent, args) => {
+            links.map(link=>{
+                const {id,url,description} = args;
+                if(link.id === id) {
+                    link.url = url;
+                    link.description = description
+                }
+                return link;
+            })
+        },
+        deleteLink : (parent, args) => {
+            links.map((link,i)=>{
+                const {id} = args;
+                if(link.id === id) {
+                    links.splice(i,1);
+                }
+                return link;
+            })
         }
     }  
 }
