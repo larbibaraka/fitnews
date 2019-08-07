@@ -40,19 +40,17 @@ const resolvers = {
                   }           
                }
                return links[i];
-         }
-                //const {id,url,description} = args;
-                              
-            
+         }                             
         },
         deleteLink : (parent, args) => {
-            links.map((link,i)=>{
-                const {id} = args;
-                if(link.id === id) {
+            for(let i=0 ; i<links.length; i++){
+                if(links[i].id === args.id){
                     links.splice(i,1);
+                    return links[i];
                 }
-                return link;
-            })
+               
+            }
+
         }
     }  
 }
