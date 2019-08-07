@@ -30,14 +30,20 @@ const resolvers = {
             return link 
         },
         updateLink : (parent, args) => {
-            links.map(link=>{
-                const {id,url,description} = args;
-                if(link.id === id) {
-                    link.url = url;
-                    link.description = description
-                }
-                return link;
-            })
+         for(let i=0 ; i<links.length; i++){
+               if(links[i].id === args.id){
+                  if(args.url){
+                    links[i].url = args.url;
+                  }
+                  if(args.description){
+                      links[i].description = args.description;
+                  }           
+               }
+               return links[i];
+         }
+                //const {id,url,description} = args;
+                              
+            
         },
         deleteLink : (parent, args) => {
             links.map((link,i)=>{
