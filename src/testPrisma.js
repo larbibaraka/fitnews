@@ -1,8 +1,6 @@
 const { prisma } = require('./generated/prisma-client/')
 
-
 //test prisma 
-
 async function main(){
     //create new link
     const newLink = await prisma.createLink({

@@ -1,46 +1,27 @@
 const { GraphQLServer } = require('graphql-yoga');
 
-let links = [
-    {
-        id  : "link-0",
-        url : "www.google.com",
-        description : "the best search engine you will ever gonna need in your life"
-    }
-]
+const { prisma } = require('./generated/prisma-client/');
 
-let idCount = links.length;
+ 
 
 // define resolvers
 const resolvers = {
     Query : {
-        info : () => 'hello this is just an info about fitnews',
-        feed : () => links,
-        link : (parent, args) => { for(let i=0; i<links.length ; i++){ if(links[i].id === args.id) {return links[i]} } },
-         
-        
+        info : () => 'now we are serving data from a real data base harray !!',
+        feed : (root, args, context, info) => {
+            return context.prisma.links()
+        },
+        link : (root, args, context, info) => { return context.prisma.link(args.id) },    
     },
     Mutation : {
-        post : (parent, args) => {
-            const link = {
-                id : `link-${idCount++}`,
-                url : args.url,
-                description : args.description
-            }
-            links.push(link)
-            return link 
+        post : (root, args, context) => {
+            return context.prisma.createLink({
+                    url : args.url,
+                    description : args.description
+            }) 
         },
-        updateLink : (parent, args) => {
-         for(let i=0 ; i<links.length; i++){
-               if(links[i].id === args.id){
-                  if(args.url){
-                    links[i].url = args.url;
-                  }
-                  if(args.description){
-                      links[i].description = args.description;
-                  }           
-               }
-               return links[i];
-         }                             
+        updateLink : (root, args, context) => {
+                                         
         },
         deleteLink : (parent, args) => {
             for(let i=0 ; i<links.length; i++){
@@ -59,6 +40,7 @@ const resolvers = {
 
 const server = new GraphQLServer ({
     typeDefs: './src/schema.graphql',
-    resolvers
+    resolvers,
+    context : { prisma }
 });
 server.start(()=>console.log(`server is running on port 4000`));
