@@ -1,0 +1,11 @@
+# http end point for prisma api
+#endpoint: ''endpoint: https://eu1.prisma.sh/baraka-larbi-laridev--0da2bb/fitnews/dev
+
+
+#the file that contains data model
+datamodel: datamodel.prisma
+
+# specifies the language & location for the generated Prisma client
+generate:
+  - generator : javascript-client
+    output: ../src/generated/prisma-client

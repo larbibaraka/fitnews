@@ -4,6 +4,7 @@ fitnews is a project built with node and graphql it's a similar to hackernews, t
 
 * graphql-yoga
 * Prisma
+* Amazon aurora (db)
 
 ## creator :
 Baraka Larbi -laridev-
