@@ -4,3 +4,11 @@ type Link {
     description : String!
     url : String!
 }
+
+type User {
+    id : ID! @id
+    name : String!
+    email : String!
+    password : String!
+    links : [Link!]!
+}

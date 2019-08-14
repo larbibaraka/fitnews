@@ -1,5 +1,6 @@
 # http end point for prisma api
-#endpoint: ''endpoint: https://eu1.prisma.sh/baraka-larbi-laridev--0da2bb/fitnews/dev
+#endpoint: ''
+endpoint: https://eu1.prisma.sh/baraka-larbi-laridev--0da2bb/fitnews/dev
 
 
 #the file that contains data model
@@ -9,3 +10,8 @@ datamodel: datamodel.prisma
 generate:
   - generator : javascript-client
     output: ../src/generated/prisma-client
+
+#add hooks to make it generate new data when i do an update of modal or redeploy
+hooks : 
+  post-deploy :
+    - prisma generate
