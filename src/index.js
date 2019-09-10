@@ -8,9 +8,7 @@ const { prisma } = require('./generated/prisma-client/');
 const resolvers = {
     Query : {
         info : () => 'now we are serving data from a real data base harray !!',
-        feed : (root, args, context, info) => {
-            return context.prisma.links()
-        },
+     
         link : (root, args, context, info) => { return context.prisma.link(args.id) },    
     },
     Mutation : {

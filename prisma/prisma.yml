@@ -14,4 +14,5 @@ generate:
 #add hooks to make it generate new data when i do an update of modal or redeploy
 hooks : 
   post-deploy :
+    - echo "Deployment finished"
     - prisma generate
